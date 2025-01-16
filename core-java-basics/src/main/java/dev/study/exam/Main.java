@@ -58,8 +58,8 @@ public class Main {
         Product tablet = new Product("Tablet", 500.0);
 
         // 주문 생성
-        Order order1 = new Order(1, "Alice", List.of(laptop, phone), laptop.getPrice() + phone.getPrice());
-        Order order2 = new Order(2, "Bob", List.of(tablet), tablet.getPrice());
+        Order order1 = new Order(1, "Alice", List.of(laptop, phone), laptop.price() + phone.price());
+        Order order2 = new Order(2, "Bob", List.of(tablet), tablet.price());
 
         // 주문 관리 시스템
         OrderManager orderManager = new OrderManager();
