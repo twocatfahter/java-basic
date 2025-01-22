@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/core-java-basics.iml" filepath="$PROJECT_DIR$/core-java-basics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-java-basics.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-java-basics.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-java-basics.test.iml" filepath="$PROJECT_DIR$/.idea/modules/core-java-basics.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-basic.iml" filepath="$PROJECT_DIR$/.idea/java-basic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-pattern.iml" filepath="$PROJECT_DIR$/java-pattern.iml" />
     </modules>
   </component>
 </project>

@@ -7,4 +7,26 @@ package dev.study.정적팩토리.exam;
  * 메서드이름 of 예 -> Car.of("Hyundai", "Sonata", 2500);
  */
 public class Car {
+    private final String brand;
+    private final String model;
+    private final int price;
+
+    private Car(String brand, String model, int price) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+    }
+
+    public static Car of(String brand, String model, int price) {
+        return new Car(brand, model, price);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
