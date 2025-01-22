@@ -8,4 +8,7 @@ package dev.study.퍼샤드.과제1;
  * - 예약 확인 알림 -> NotificationService
  */
 public class RoomService {
+    public void reservation(String room) {
+        System.out.println(room + "예약");
+    }
 }
