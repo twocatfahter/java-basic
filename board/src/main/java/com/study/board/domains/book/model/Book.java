@@ -18,14 +18,29 @@ public class Book {
     private String isbn;
     private int price;
     private int stockQuantity;
+    private boolean isDeleted;
 
-    private Book(Long id, String title, String author, String isbn, int price, int stockQuantity) {
+    private Book(Long id, String title,
+                 String author, String isbn,
+                 int price, int stockQuantity,
+                 boolean isDeleted) {
+
         this.id = id;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.price = price;
         this.stockQuantity = stockQuantity;
+        this.isDeleted = isDeleted;
+    }
+
+    // 도메인 로직
+    public void updateStock(int quantity) {
+        int newQuantity = this.stockQuantity + quantity;
+        if (newQuantity < 0) {
+            throw new IllegalArgumentException("재고가 부족합니다, 현재 재고: " + this.stockQuantity);
+        }
+        this.stockQuantity = newQuantity;
     }
 
     // 정적 팩토리 메서드

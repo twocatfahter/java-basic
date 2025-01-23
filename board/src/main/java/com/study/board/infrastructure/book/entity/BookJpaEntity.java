@@ -41,4 +41,10 @@ public class BookJpaEntity extends BaseEntity {
         entity.stockQuantity = book.getStockQuantity();
         return entity;
     }
+
+    // 엔티티 수정 메서드
+    public void update(Book book) {
+        this.price = book.getPrice();
+        this.stockQuantity = book.getStockQuantity();
+    }
 }
