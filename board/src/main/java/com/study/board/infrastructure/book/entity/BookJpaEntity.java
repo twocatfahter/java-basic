@@ -3,13 +3,15 @@ package com.study.board.infrastructure.book.entity;
 import com.study.board.domains.book.model.Book;
 import com.study.board.global.common.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "books")
+@Builder
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BookJpaEntity extends BaseEntity {
 
@@ -31,6 +33,10 @@ public class BookJpaEntity extends BaseEntity {
 
     @Column(nullable = false)
     private Integer stockQuantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public static BookJpaEntity from(Book book) {
         BookJpaEntity entity = new BookJpaEntity();

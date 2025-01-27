@@ -1,14 +1,18 @@
 package com.study.board.service.book.facade;
 
 import com.study.board.api.dto.request.BookRequest;
+import com.study.board.api.dto.request.BookSearchRequest;
 import com.study.board.api.dto.response.BookResponse;
 import com.study.board.domains.book.model.Book;
 import com.study.board.service.book.BookService;
+import com.study.board.service.book.dto.BookSearchCriteria;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -36,5 +40,14 @@ public class BookFacadeService {
     @Transactional
     public void deleteBook(@Positive(message = "ID Must be positive") Long id) {
         bookService.deleteBook(id);
+    }
+
+    public List<BookResponse> searchBooks(BookSearchRequest request) {
+        BookSearchCriteria criteria = request.toCriteria();
+
+        return bookService.searchBooks(criteria)
+                .stream()
+                .map(BookResponse::from)
+                .toList();
     }
 }

@@ -1,6 +1,7 @@
 package com.study.board.api.controller;
 
 import com.study.board.api.dto.request.BookRequest;
+import com.study.board.api.dto.request.BookSearchRequest;
 import com.study.board.api.dto.response.BookResponse;
 import com.study.board.service.book.facade.BookFacadeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -65,6 +66,23 @@ public class BookController {
     ) {
         BookSearchRequest request = new BookSearchRequest(title, author, minPrice, maxPrice);
         return ResponseEntity.ok(bookFacadeService.searchBooks(request));
+    }
+
+    @PatchMapping("/{id}")
+    @Operation(summary = "Update book details")
+    public ResponseEntity<BookResponse> updateBookDetails(
+            @PathVariable Long id,
+            @Valid @RequestBody BookUpdateRequest request
+    ) {
+        return ResponseEntity.ok(bookFacadeService.updateBookDetails(id, request));
+    }
+
+    @GetMapping("/author/{author}")
+    @Operation(summary = "저자 기준으로 책을 찾는다")
+    public ResponseEntity<List<BookResponse>> getBooksByAuthor(
+            @PathVariable String author
+    ) {
+        return ResponseEntity.ok(bookFacadeService.getBooksByAuthor(author));
     }
 
 }
