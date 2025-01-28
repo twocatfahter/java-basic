@@ -3,6 +3,8 @@ package com.study.board.service.book;
 import com.study.board.domains.book.model.Book;
 import com.study.board.service.book.dto.BookSearchCriteria;
 import com.study.board.service.book.dto.BookServiceRequest;
+import com.study.board.service.book.dto.BookServiceWithCategoryRequest;
+import com.study.board.service.book.dto.BookUpdateServiceRequest;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
@@ -19,4 +21,11 @@ public interface BookService {
     void deleteBook(@Positive(message = "ID Must be positive") Long id);
 
     List<Book> searchBooks(BookSearchCriteria criteria);
+
+    Book updateBookDetails(Long id, BookUpdateServiceRequest serviceRequest);
+
+    List<Book> getBooksByAuthor(String author);
+
+    Book createBookWithCategory(BookServiceWithCategoryRequest serviceRequest, @NotNull(message = "Category ID is mandatory") Long categoryId);
+
 }

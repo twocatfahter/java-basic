@@ -2,6 +2,8 @@ package com.study.board.api.controller;
 
 import com.study.board.api.dto.request.BookRequest;
 import com.study.board.api.dto.request.BookSearchRequest;
+import com.study.board.api.dto.request.BookUpdateRequest;
+import com.study.board.api.dto.request.BookWithCategoryRequest;
 import com.study.board.api.dto.response.BookResponse;
 import com.study.board.service.book.facade.BookFacadeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +29,14 @@ public class BookController {
     @Operation(summary = "책 등록")
     public ResponseEntity<BookResponse> saveBook(@Valid @RequestBody BookRequest request) {
         return ResponseEntity.status(201).body(bookFacadeService.saveBook(request));
+    }
+
+    @PostMapping("/category")
+    @Operation(summary = "책 등록", description = "카테고리 포함된 책 등록")
+    public ResponseEntity<BookResponse> createBookWithCategory(
+            @Valid @RequestBody BookWithCategoryRequest request
+    ) {
+        return ResponseEntity.ok(bookFacadeService.createBookWithCategory(request));
     }
 
     @GetMapping("/{id}")

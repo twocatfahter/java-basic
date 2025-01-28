@@ -8,7 +8,8 @@ public record BookResponse(
         String author,
         String isbn,
         Integer price,
-        Integer stockQuantity
+        Integer stockQuantity,
+        String category
 ) {
 
     public static BookResponse from(Book book) {
@@ -18,7 +19,8 @@ public record BookResponse(
                 book.getAuthor(),
                 book.getIsbn(),
                 book.getPrice(),
-                book.getStockQuantity()
+                book.getStockQuantity(),
+                book.getCategory() != null ? book.getCategory().getName() : null
         );
     }
 }

@@ -5,8 +5,6 @@ import com.study.board.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "books")
 @Builder
@@ -36,7 +34,7 @@ public class BookJpaEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    private Category category;
+    private CategoryJpaEntity category;
 
     public static BookJpaEntity from(Book book) {
         BookJpaEntity entity = new BookJpaEntity();
