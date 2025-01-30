@@ -30,7 +30,14 @@ dependencies {
 	implementation("jakarta.validation:jakarta.validation-api:3.0.2")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
 	compileOnly("org.projectlombok:lombok")
-	runtimeOnly("com.h2database:h2")
+
+	runtimeOnly("com.mysql:mysql-connector-j")
+
+	// flyway
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.flywaydb:flyway-mysql")
+
+//	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
