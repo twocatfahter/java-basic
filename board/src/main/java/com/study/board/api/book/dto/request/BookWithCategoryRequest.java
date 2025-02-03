@@ -1,4 +1,4 @@
-package com.study.board.api.dto.request;
+package com.study.board.api.book.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

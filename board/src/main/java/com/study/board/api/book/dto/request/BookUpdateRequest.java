@@ -1,4 +1,4 @@
-package com.study.board.api.dto.request;
+package com.study.board.api.book.dto.request;
 
 import com.study.board.service.book.dto.BookServiceRequest;
 import com.study.board.service.book.dto.BookUpdateServiceRequest;

@@ -1,10 +1,10 @@
-package com.study.board.api.controller;
+package com.study.board.api.book.controller;
 
-import com.study.board.api.dto.request.BookRequest;
-import com.study.board.api.dto.request.BookSearchRequest;
-import com.study.board.api.dto.request.BookUpdateRequest;
-import com.study.board.api.dto.request.BookWithCategoryRequest;
-import com.study.board.api.dto.response.BookResponse;
+import com.study.board.api.book.dto.request.BookRequest;
+import com.study.board.api.book.dto.request.BookSearchRequest;
+import com.study.board.api.book.dto.request.BookUpdateRequest;
+import com.study.board.api.book.dto.request.BookWithCategoryRequest;
+import com.study.board.api.book.dto.response.BookResponse;
 import com.study.board.service.book.facade.BookFacadeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

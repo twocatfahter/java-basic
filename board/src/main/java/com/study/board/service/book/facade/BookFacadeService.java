@@ -1,10 +1,10 @@
 package com.study.board.service.book.facade;
 
-import com.study.board.api.dto.request.BookRequest;
-import com.study.board.api.dto.request.BookSearchRequest;
-import com.study.board.api.dto.request.BookUpdateRequest;
-import com.study.board.api.dto.request.BookWithCategoryRequest;
-import com.study.board.api.dto.response.BookResponse;
+import com.study.board.api.book.dto.request.BookRequest;
+import com.study.board.api.book.dto.request.BookSearchRequest;
+import com.study.board.api.book.dto.request.BookUpdateRequest;
+import com.study.board.api.book.dto.request.BookWithCategoryRequest;
+import com.study.board.api.book.dto.response.BookResponse;
 import com.study.board.domains.book.model.Book;
 import com.study.board.service.book.BookService;
 import com.study.board.service.book.dto.BookSearchCriteria;

@@ -1,4 +1,4 @@
-package com.study.board.api.dto.response;
+package com.study.board.api.book.dto.response;
 
 import com.study.board.domains.book.model.Book;
 
