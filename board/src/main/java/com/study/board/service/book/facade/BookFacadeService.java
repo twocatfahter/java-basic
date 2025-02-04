@@ -68,6 +68,7 @@ public class BookFacadeService {
                 .toList();
     }
 
+    @Transactional
     public BookResponse createBookWithCategory(@Valid BookWithCategoryRequest request) {
         validateBookRequest(request);
         Book bookWithCategory =

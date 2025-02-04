@@ -22,7 +22,9 @@ public class SecurityConfig {
             "/swagger-ui/**",
             "/swagger-resources/**",
             // 회원가입 API
-            "/api/v1/users/register"
+            "/api/v1/users/register",
+            "/api/v1/books/category",
+            "/api/v1/reviews/**"
     };
 
     @Bean
