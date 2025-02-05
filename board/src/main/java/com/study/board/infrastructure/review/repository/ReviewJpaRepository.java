@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ReviewJpaRepository extends JpaRepository<ReviewJpaEntity, Long> {
+public interface ReviewJpaRepository extends JpaRepository<ReviewJpaEntity, Long>, ReviewQueryRepository {
 
     @EntityGraph(attributePaths = {"user", "book"})
     Page<ReviewJpaEntity> findByBookIdAndIsDeletedFalse(Long bookId, Pageable pageable);

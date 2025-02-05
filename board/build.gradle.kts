@@ -23,6 +23,8 @@ repositories {
 	mavenCentral()
 }
 
+val queryDslVersion = "5.1.0"
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
@@ -33,6 +35,12 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 
 	runtimeOnly("com.mysql:mysql-connector-j")
+
+	// QueryDSL
+	implementation("com.querydsl:querydsl-jpa:${queryDslVersion}:jakarta")
+	annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}:jakarta")
+	annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+	annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 
 	// flyway
 	implementation("org.flywaydb:flyway-core")
@@ -47,3 +55,18 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+val querydslDir = layout.buildDirectory.dir("generated/querydsl").get().asFile
+
+tasks.withType<JavaCompile> {
+	options.generatedSourceOutputDirectory.set(querydslDir)
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs(querydslDir)
+		}
+	}
+}
+

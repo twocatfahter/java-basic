@@ -39,6 +39,17 @@ public class ReviewController {
         return ResponseEntity.ok(pageReviews);
     }
 
+    // 리뷰조회 (책 아이디기준)
+    @GetMapping("/query/books/{bookId}")
+    public ResponseEntity<Page<ReviewServiceResponse>> getQueryReviewByBook(
+            @PathVariable Long bookId,
+            @PageableDefault(sort = "rating", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        Page<ReviewServiceResponse> pageReviews = reviewService.getQueryPageReviews(bookId, pageable);
+        return ResponseEntity.ok(pageReviews);
+    }
+
+
     // 도서별 평균 평점 조회
     @GetMapping("/books/{bookId}/average-rating")
     public ResponseEntity<Double> getAverageRating(@PathVariable Long bookId) {

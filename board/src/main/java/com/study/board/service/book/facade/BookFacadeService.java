@@ -58,6 +58,15 @@ public class BookFacadeService {
                 .toList();
     }
 
+    public List<BookResponse> searchQueryBooks(BookSearchRequest request) {
+        BookSearchCriteria criteria = request.toCriteria();
+
+        return bookService.searchQueryBooks(criteria)
+                .stream()
+                .map(BookResponse::from)
+                .toList();
+    }
+
     public BookResponse updateBookDetails(Long id, @Valid BookUpdateRequest request) {
         return BookResponse.from(bookService.updateBookDetails(id, request.toServiceRequest()));
     }

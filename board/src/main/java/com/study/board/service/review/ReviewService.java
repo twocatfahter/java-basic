@@ -57,6 +57,11 @@ public class ReviewService {
     }
 
     @Transactional(readOnly = true)
+    public Page<ReviewServiceResponse> getQueryPageReviews(Long bookId, Pageable pageable) {
+        return reviewJpaRepository.queryFindReviewsByBookId(bookId, pageable);
+    }
+
+    @Transactional(readOnly = true)
     public double calculateAverageRating(Long bookId) {
         return reviewJpaRepository.findByBookIdAndIsDeletedFalse(bookId).stream()
                 .mapToInt(ReviewJpaEntity::getRating)

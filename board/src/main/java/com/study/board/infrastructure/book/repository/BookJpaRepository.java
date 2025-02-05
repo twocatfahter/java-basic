@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface BookJpaRepository extends JpaRepository<BookJpaEntity, Long> {
+public interface BookJpaRepository extends JpaRepository<BookJpaEntity, Long>, BookQueryRepository {
 
     @Query("SELECT b FROM BookJpaEntity b WHERE b.id = :id AND b.isDeleted = false")
     Optional<BookJpaEntity> findActiveById(@Param("id") Long id);

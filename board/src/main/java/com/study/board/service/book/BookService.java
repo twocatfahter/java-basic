@@ -21,6 +21,7 @@ public interface BookService {
     void deleteBook(@Positive(message = "ID Must be positive") Long id);
 
     List<Book> searchBooks(BookSearchCriteria criteria);
+    List<Book> searchQueryBooks(BookSearchCriteria criteria);
 
     Book updateBookDetails(Long id, BookUpdateServiceRequest serviceRequest);
 

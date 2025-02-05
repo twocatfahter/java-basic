@@ -80,6 +80,11 @@ public class BookServiceCustom implements BookService{
     }
 
     @Override
+    public List<Book> searchQueryBooks(BookSearchCriteria criteria) {
+        return bookJpaRepository.searchQueryBooks(criteria);
+    }
+
+    @Override
     public Book updateBookDetails(Long id, BookUpdateServiceRequest serviceRequest) {
         BookJpaEntity entity = findActiveBookEntityById(id);
 

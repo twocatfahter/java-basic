@@ -78,6 +78,18 @@ public class BookController {
         return ResponseEntity.ok(bookFacadeService.searchBooks(request));
     }
 
+    @GetMapping("/query/search")
+    @Operation(summary = "Search books by criteria")
+    public ResponseEntity<List<BookResponse>> searchQueryBooks(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) Integer minPrice,
+            @RequestParam(required = false) Integer maxPrice
+    ) {
+        BookSearchRequest request = new BookSearchRequest(title, author, minPrice, maxPrice);
+        return ResponseEntity.ok(bookFacadeService.searchQueryBooks(request));
+    }
+
     @PatchMapping("/{id}")
     @Operation(summary = "Update book details")
     public ResponseEntity<BookResponse> updateBookDetails(
