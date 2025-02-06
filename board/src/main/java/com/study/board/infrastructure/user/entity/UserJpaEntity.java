@@ -1,5 +1,6 @@
 package com.study.board.infrastructure.user.entity;
 
+import com.study.board.global.common.BaseEntity;
 import com.study.board.service.user.dto.UserServiceRequest;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,7 +14,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserJpaEntity {
+public class UserJpaEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,5 +34,13 @@ public class UserJpaEntity {
                 .email(request.email())
                 .password(request.encodedPassword())
                 .build();
+    }
+
+    public void updateUsername(String username) {
+        this.username = username;
+    }
+
+    public void updatePassword(String encode) {
+        this.password = encode;
     }
 }

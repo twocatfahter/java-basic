@@ -23,6 +23,8 @@ public class SecurityConfig {
             "/swagger-resources/**",
             // 회원가입 API
             "/api/v1/users/register",
+            "/api/v1/users/login",
+            "/api/v1/users/**",
             "/api/v1/books/category",
             "/api/v1/reviews/**"
     };
